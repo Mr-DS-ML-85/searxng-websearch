@@ -62,7 +62,7 @@ search:
 ### 2 · Clone this skill
 
 ```bash
-git clone https://github.com/yourname/searxng-websearch
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch
 cd searxng-websearch
 pip install requests beautifulsoup4 lxml python-dotenv
 ```
@@ -161,7 +161,7 @@ searxng-websearch/
 ### Install as OpenClaude skill
 
 ```bash
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.openclaude/skills/searxng-websearch
 
 bash ~/.openclaude/skills/searxng-websearch/install.sh
@@ -229,11 +229,11 @@ Personal skills live in `~/.claude/skills/` (available across all projects); pro
 
 ```bash
 # Personal install (all projects)
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.claude/skills/searxng-websearch
 
 # Project-scoped install
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   .claude/skills/searxng-websearch
 ```
 
@@ -252,7 +252,7 @@ List all discovered skills with `/skills` inside a session. Invoke explicitly wi
 OpenClaude reads the same `~/.claude/skills/` directory and parses skill files in the same markdown format — no conversion needed.
 
 ```bash
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.claude/skills/searxng-websearch
 bash ~/.claude/skills/searxng-websearch/install.sh
 ```
@@ -277,10 +277,10 @@ Gemini CLI discovers skills from `~/.gemini/skills/` (user scope) or `<workspace
 
 ```bash
 # Via git install (recommended)
-gemini skills install https://github.com/yourname/searxng-websearch.git
+gemini skills install https://github.com/Mr-DS-ML-85/searxng-websearch.git
 
 # Or manually
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.gemini/skills/searxng-websearch
 
 # Verify
@@ -297,7 +297,7 @@ Skills under `~/.gemini/skills/` (user scope) are not affected by workspace trus
 Hermes Agent is compatible with the `agentskills.io` open standard. Skills are stored in `~/.hermes/skills/` and are portable, shareable, and community-contributed.
 
 ```bash
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.hermes/skills/searxng-websearch
 ```
 
@@ -311,7 +311,7 @@ NemoClaw is NVIDIA's entry into the open-source agent space, designed to run on 
 
 ```bash
 # NemoClaw uses the same ~/.openclaude/skills/ path as OpenClaude
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.openclaude/skills/searxng-websearch
 
 bash ~/.openclaude/skills/searxng-websearch/install.sh
@@ -327,11 +327,11 @@ Codex loads skills from `~/.agents/skills/` automatically when the task matches.
 
 ```bash
 # Global install via ~/.agents/skills (cross-tool standard path)
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.agents/skills/searxng-websearch
 
 # Or Codex-native path
-git clone https://github.com/yourname/searxng-websearch \
+git clone https://github.com/Mr-DS-ML-85/searxng-websearch \
   ~/.codex/skills/searxng-websearch
 ```
 
@@ -373,7 +373,7 @@ Then in Claude Desktop → **Skills → Upload Skill** → drag in the `.zip`. T
       "command": "uvx",
       "args": ["mcp-skill-hub"],
       "env": {
-        "MCP_SKILLS_DIR": "/home/yourname/.claude/skills"
+        "MCP_SKILLS_DIR": "/home/Mr-DS-ML-85/.claude/skills"
       }
     }
   }
@@ -401,7 +401,7 @@ Restart Claude Desktop. Drop a new skill folder into the skills directory and MC
 **Universal install — works for Claude Code, OpenClaude, Codex, Gemini, and Hermes in one shot:**
 
 ```bash
-REPO=https://github.com/yourname/searxng-websearch
+REPO=https://github.com/Mr-DS-ML-85/searxng-websearch
 for dir in ~/.claude/skills ~/.agents/skills ~/.codex/skills ~/.gemini/skills ~/.hermes/skills; do
   mkdir -p "$dir"
   git clone "$REPO" "$dir/searxng-websearch" 2>/dev/null || \
