@@ -67,9 +67,9 @@ wresearch "transformer attention mechanisms" --fetch-top-pages 3
 
 ```bash
 SKILL=~/.openclaude/skills/searxng-websearch
-python3 "$SKILL/websearch.py"    "Claude Sonnet 4 release notes" --format agent
-python3 "$SKILL/fetch_page.py"   https://example.com --max-chars 3000
-python3 "$SKILL/deep_research.py" "transformer attention mechanisms" --fetch-top-pages 3
+python3 "$SKILL/scripts/websearch.py"    "Claude Sonnet 4 release notes" --format agent
+python3 "$SKILL/scripts/fetch_page.py"   https://example.com --max-chars 3000
+python3 "$SKILL/scripts/deep_research.py" "transformer attention mechanisms" --fetch-top-pages 3
 ```
 
 ---
@@ -143,26 +143,26 @@ Pages are scored before fetching so the most authoritative content is prioritise
 
 ```bash
 # ✅ CORRECT — full path, no cd
-python3 ~/.openclaude/skills/searxng-websearch/websearch.py "my query" --format agent
+python3 ~/.openclaude/skills/searxng-websearch/scripts/websearch.py "my query" --format agent
 
 # ✅ CORRECT — SKILL_DIR variable makes it readable
 SKILL_DIR=~/.openclaude/skills/searxng-websearch
-python3 "$SKILL_DIR/websearch.py" "my query" --format agent
+python3 "$SKILL_DIR/scripts/websearch.py" "my query" --format agent
 
 # ❌ WRONG — cd resets on the next Bash() call
-cd ~/.openclaude/skills/searxng-websearch && python3 websearch.py "my query"
+cd ~/.openclaude/skills/searxng-websearch/scripts/ && python3 websearch.py "my query"
 ```
 
 If the skill path is unknown, resolve it first:
 ```bash
-SKILL_DIR=$(find ~/.openclaude/skills -name "websearch.py" -printf '%h' -quit 2>/dev/null \
-            || find ~/skills -name "websearch.py" -printf '%h' -quit 2>/dev/null)
+SKILL_DIR=$(find ~/.openclaude/skills/scripts -name "websearch.py" -printf '%h' -quit 2>/dev/null \
+            || find ~/skills/scripts -name "websearch.py" -printf '%h' -quit 2>/dev/null)
 python3 "$SKILL_DIR/websearch.py" "my query" --format agent
 ```
 
 ---
 
-## Tips for Claude
+## Tips for running it
 
 - Run `websearch.py` with `--format agent` when you need compact, token-efficient context to pass
   back to the model.
@@ -171,5 +171,5 @@ python3 "$SKILL_DIR/websearch.py" "my query" --format agent
   `SEARXNG_URL` is correct and the instance is running.
 - Pipe markdown output into a file for later use:
   ```bash
-  python3 ~/.openclaude/skills/searxng-websearch/deep_research.py "RAG retrieval strategies" > research.md
+  python3 ~/.openclaude/skills/searxng-websearch/scripts/deep_research.py "RAG retrieval strategies" > research.md
   ```
