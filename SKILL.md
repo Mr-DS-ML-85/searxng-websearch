@@ -39,6 +39,8 @@ cp _env .env
 | `SEARXNG_LANGUAGE` | `en` | Default search language |
 | `SEARXNG_SAFE_SEARCH` | `0` | 0 = off, 1 = moderate, 2 = strict |
 | `SEARXNG_TIMEOUT` | `20` | HTTP timeout in seconds |
+| `SEARCH_PROVIDER` | `searxng` | Search provider: `searxng` or `tavily` |
+| `TAVILY_API_KEY` | — | Tavily API key (required when `SEARCH_PROVIDER=tavily`) |
 
 > **CLI override** — every script now also accepts `--searxng-url` to override the env value
 > for one-off runs without editing `.env`.
@@ -50,7 +52,7 @@ cp _env .env
 ### Install dependencies
 
 ```bash
-pip install requests beautifulsoup4 lxml python-dotenv
+pip install requests beautifulsoup4 lxml python-dotenv tavily-python
 ```
 
 ### Install PATH shims (recommended — fixes CWD issues in OS)
@@ -82,6 +84,7 @@ python3 "$SKILL/scripts/deep_research.py" "transformer attention mechanisms" --f
 python websearch.py <query> [options]
 
 Options:
+  --provider PROVIDER     searxng | tavily (default: env SEARCH_PROVIDER or searxng)
   --searxng-url URL       SearXNG base URL (overrides SEARXNG_URL env var)
   --category CATEGORY     general | images | news | science | files |
                           social_media | map | music | videos | it
@@ -110,6 +113,7 @@ Options:
 python deep_research.py <topic> [options]
 
 Options:
+  --provider PROVIDER     searxng | tavily (default: env SEARCH_PROVIDER or searxng)
   --searxng-url URL       SearXNG base URL (overrides SEARXNG_URL env var)
   --max-results N         Results per sub-query (default: 4)
   --fetch-top-pages N     Number of top pages to fetch (default: 3)
