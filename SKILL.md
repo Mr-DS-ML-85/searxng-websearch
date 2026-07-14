@@ -105,6 +105,10 @@ python fetch_page.py <url> [options]
 Options:
   --searxng-url URL       Unused here but accepted for consistency
   --max-chars N           Max characters to print (default: 5000)
+  --provider PROVIDER     direct | tavily (default: env SEARCH_PROVIDER or direct)
+                          "tavily" uses the Tavily Extract API — useful for
+                          JS-rendered or paywalled pages where BS4 returns
+                          little usable text. Requires TAVILY_API_KEY.
 ```
 
 ### `deep_research.py`
